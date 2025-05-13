@@ -1,4 +1,3 @@
 <?php
-    echo "This is signup page";
-    echo "<br>";
+    include 'signup.html';
 ?>
