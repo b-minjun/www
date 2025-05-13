@@ -1,8 +1,8 @@
 <?php
 session_start();
-if(!isset($_SESSION['username'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+$username = $_POST['username'];
+$password = $_POST['password'];
+if($_SESSION['username'] != $username){ 
     $_SESSION['username'] = $username;
     $conn = mysqli_connect("localhost", "root", "", "Cykor");
     if (!$conn) {
@@ -13,19 +13,18 @@ if(!isset($_SESSION['username'])) {
     if($result->num_rows == 1) {
         $row = $result->fetch_assoc();
         echo "<script>
-                alert('Welcome " . $row['username'] . "!');
+                alert('안녕하세요, " . $row['username'] . "님!');
                 window.location.href = 'index.html';
             </script>";
     } else {
         echo "<script>
-                alert('Invalid username or password');
+                alert('아이디 또는 비밀번호가 잘못되었습니다.');
                 window.location.href = 'login.html';
             </script>";
     }
 } else {
-    session_start();
     echo "<script>
-            alert('You are already logged in as " . $_SESSION['username'] . ".');
+            alert('" . $_SESSION['username'] . " 님, 이 계정으로 이미 로그인 되어 있습니다.');
             window.location.href = 'index.html';
         </script>";
 }
