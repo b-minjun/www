@@ -15,6 +15,10 @@ if(!isset($_SESSION['username'])) {
     }
     $sql = "SELECT * FROM articles";
     $result = $conn->query($sql);
+    echo '<h1>글 보기 페이지 입니다</h1>
+        <a href="index.html">메인 페이지</a><br>
+        <a href="write.php">글 작성 페이지</a><br>
+        <br><br>';
     while($row = $result->fetch_assoc()) {
         $title = $row['title'];
         $writer = $row['writer'];
@@ -24,8 +28,7 @@ if(!isset($_SESSION['username'])) {
             내용 : ' . nl2br(htmlspecialchars($content)) . '<br>
             <a href="update.php?title=' . urlencode($title) . '&writer=' . urlencode($writer) . '&content=' . urlencode($content) . '"><button>수정</button></a>
             <a href="delete.php?title=' . urlencode($title) . '&writer=' . urlencode($writer) . '&content=' . urlencode($content) . '"><button>삭제</button></a>    
-        ';
-        echo '<br><br>';
+            <br><br>';
     }   
 }
 ?>
