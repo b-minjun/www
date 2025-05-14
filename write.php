@@ -11,8 +11,8 @@ if(!isset($_SESSION['username'])) {
         <a href="index.html">메인 페이지</a><br>
         <a href="show_articles.php">글 보기 페이지</a><br><br>
         <form action="" method="post">
-            <input type="text" name="title" placeholder="제목을 입력하세요"><br>
-            <textarea name="content"></textarea><br>
+            <input type="text" name="title" placeholder="제목을 입력하세요"><br><br>
+            <textarea name="content" rows="5" cols="30" placeholder="내용을 입력하세요"></textarea><br><br>
             <input type="submit" value="작성">
         </form>';
 } else {

@@ -5,7 +5,6 @@ if(!isset($_SESSION['username'])) {
             alert('로그인 후 이용해주세요.');
             window.location.href = 'login.html';
         </script>";
-        exit();
     exit();
 } else {
     $username = $_SESSION['username'];
@@ -17,7 +16,7 @@ if(!isset($_SESSION['username'])) {
     $result = $conn->query($sql);
     echo '<h1>글 보기 페이지 입니다</h1>
         <a href="index.html">메인 페이지</a><br>
-        <a href="write.php">글 작성 페이지</a><br>
+        <a href="write.php">글 작성 페이지</a>
         <br><br>';
     while($row = $result->fetch_assoc()) {
         $title = $row['title'];
@@ -26,9 +25,19 @@ if(!isset($_SESSION['username'])) {
         echo '제목 : ' . htmlspecialchars($title) . '<br> 
             작성자 : ' . htmlspecialchars($writer) . ' <br> 
             내용 : ' . nl2br(htmlspecialchars($content)) . '<br>
-            <a href="update.php?title=' . urlencode($title) . '&writer=' . urlencode($writer) . '&content=' . urlencode($content) . '"><button>수정</button></a>
-            <a href="delete.php?title=' . urlencode($title) . '&writer=' . urlencode($writer) . '&content=' . urlencode($content) . '"><button>삭제</button></a>    
-            <br><br>';
+            <form action="update.php" method="post">
+                <input type="hidden" name="title" value="' . htmlspecialchars($title) . '">
+                <input type="hidden" name="writer" value="' . htmlspecialchars($writer) . '">
+                <input type="hidden" name="content" value="' . htmlspecialchars($content) . '">
+                <input type="submit" value="수정"></input>
+            </form>
+            <form action="delete.php" method="post">
+                <input type="hidden" name="title" value="' . htmlspecialchars($title) . '">
+                <input type="hidden" name="writer" value="' . htmlspecialchars($writer) . '">
+                <input type="hidden" name="content" value="' . htmlspecialchars($content) . '">
+                <input type="submit" value="삭제"></input>
+            </form>
+            <br>';
     }   
 }
 ?>
