@@ -16,9 +16,14 @@ if(!isset($_SESSION['username'])) {
     $sql = "SELECT * FROM articles";
     $result = $conn->query($sql);
     while($row = $result->fetch_assoc()) {
-        echo "제목 : {$row['title']}<br> 
-            작성자 : {$row['writer']}<br> 
-            내용 : {$row['content']}<br><br>";
+        $title = $row['title'];
+        $writer = $row['writer'];
+        $content = $row['content'];
+        echo "제목 : $title<br> 
+            작성자 : $writer<br>
+            내용 : $content<br>
+            <a href="update.php?title=$title&writer=$writer&content=$content"><button>수정</button></a>
+            <a href="delete.php?title=$title&writer=$writer&content=$content"><button>삭제</button></a><br><br>";
     }   
 }
 ?>
