@@ -19,11 +19,13 @@ if(!isset($_SESSION['username'])) {
         $title = $row['title'];
         $writer = $row['writer'];
         $content = $row['content'];
-        echo "제목 : $title<br> 
-            작성자 : $writer<br>
-            내용 : $content<br>
-            <a href="update.php?title=$title&writer=$writer&content=$content"><button>수정</button></a>
-            <a href="delete.php?title=$title&writer=$writer&content=$content"><button>삭제</button></a><br><br>";
+        echo '제목 : ' . htmlspecialchars($title) . '<br> 
+            작성자 : ' . htmlspecialchars($writer) . ' <br> 
+            내용 : ' . nl2br(htmlspecialchars($content)) . '<br>
+            <a href="update.php?title=' . urlencode($title) . '&writer=' . urlencode($writer) . '&content=' . urlencode($content) . '"><button>수정</button></a>
+            <a href="delete.php?title=' . urlencode($title) . '&writer=' . urlencode($writer) . '&content=' . urlencode($content) . '"><button>삭제</button></a>    
+        ';
+        echo '<br><br>';
     }   
 }
 ?>
