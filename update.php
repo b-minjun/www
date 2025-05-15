@@ -24,8 +24,7 @@ if($_SESSION['username'] == $writer) {
                     <input type="submit" value="수정">
             </form>
     ';
-    }
-    if(isset($_POST['newtitle']) && isset($_POST['newcontent'])) {
+    } else {
         $newtitle = $_POST['newtitle'];
         $newcontent = $_POST['newcontent'];
         $conn = mysqli_connect("localhost", "root", "", "Cykor");
