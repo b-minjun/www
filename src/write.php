@@ -19,7 +19,7 @@ if(!isset($_SESSION['username'])) {
     $title = $_POST['title'];
     $writer = $_SESSION['username'];
     $content = $_POST['content'];
-    $conn = mysqli_connect("localhost", "root", "", "Cykor");
+    $conn = mysqli_connect("localhost", "minjun0328", "minjun0328@", "Cykor");
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }

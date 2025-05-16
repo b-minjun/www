@@ -27,7 +27,7 @@ if($_SESSION['username'] == $writer) {
     } else {
         $newtitle = $_POST['newtitle'];
         $newcontent = $_POST['newcontent'];
-        $conn = mysqli_connect("localhost", "root", "", "Cykor");
+        $conn = mysqli_connect("localhost", "minjun0328", "minjun0328@", "Cykor");
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
         }
