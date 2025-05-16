@@ -16,8 +16,8 @@ if($_SESSION['username'] == $writer) {
             <a href="index.html">메인 페이지</a><br>
             <a href="show_articles.php">글 보기 페이지</a><br>
             <form action="" method="post">
-                    <input type="text" name="newtitle" placeholder="제목을 입력하세요"><br><br>
-                    <textarea name="newcontent" rows="5" cols="30" placeholder="내용을 입력하세요"></textarea><br><br>
+                    <input type="text" name="newtitle" value="' . $title . '"><br><br>
+                    <textarea name="newcontent" rows="5" cols="30">' . $content . '</textarea><br><br>
                     <input type="hidden" name="title" value="' . $title . '">
                     <input type="hidden" name="writer" value="' . $writer . '">
                     <input type="hidden" name="content" value="' . $content . '">
