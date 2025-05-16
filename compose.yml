@@ -1,0 +1,22 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+    networks:
+      - default
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: "minjun0328@"
+      MYSQL_USER: "minjun0328"
+      MYSQL_PASSWORD: "minjun0328@"
+      MYSQL_DATABASE: "Cykor"
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db/init:/docker-entrypoint-initdb.d
+    networks:
+      - default
