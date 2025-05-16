@@ -11,7 +11,7 @@ if(!isset($_SESSION['username'])) {
     exit();
 }
 if($_SESSION['username'] == $writer) {
-    $conn = mysqli_connect("localhost", "minjun0328", "minjun0328@", "Cykor");
+    $conn = mysqli_connect("db", "minjun0328", "minjun0328@", "Cykor");
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
